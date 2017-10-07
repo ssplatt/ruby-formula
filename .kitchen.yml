@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+driver:
+  name: vagrant
+  customize: 
+    memory: 1024
+
+provisioner:
+  name: salt_solo
+  formula: ruby
+  state_top:
+    base:
+      "*":
+        - ruby
+
+platforms:
+  - name: bento/debian-8.1
+
+suites:
+  - name: default
+
+  - name: custom
+    provisioner:
+      pillars-from-files:
+        ruby.sls: pillar-custom.sls
+      pillars:
+        top.sls:
+          base:
+            "*":
+              - ruby

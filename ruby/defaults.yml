@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+# Defaults for ruby
+
+ruby:
+  enabled: False
+  required_pkgs:
+    - ruby
